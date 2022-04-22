@@ -8,7 +8,9 @@ function KegDetail(props){
     <React.Fragment>
       <h1>Keg Detail</h1>
       <h4>Name: {keg.name} - {keg.brand}</h4>
-      <h4>Price: ${keg.price}</h4>
+      <span style={{color: 'green'}}>
+        <h4>Price: ${keg.price}</h4>
+      </span>
       <p>Alcohol Content: <em>{keg.alcoholContent}</em></p>
       <p>Pints Left: <em>{keg.pints}</em></p>
       <button onClick={ props.onClickingEdit }>Update Keg Details</button>

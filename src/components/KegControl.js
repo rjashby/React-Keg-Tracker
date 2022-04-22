@@ -13,8 +13,7 @@ class KegControl extends React.Component {
       mainKegList: [],
       selectedKeg: null,
       editing: false,
-      pints: 124 // TRACK PINTS - Maybe not here?
-    };s
+    };
   }
 
   handleClick = () => {
