@@ -13,7 +13,7 @@ function Keg(props){
         <p>Alcohol Content: <em>{props.alcoholContent}</em></p>
         <p>Pints Left: <em>{props.pints}</em></p>
         <button onClick = {() => props.whenKegClicked(props.id)}>View Keg Details</button>
-        <button onClick = {() => props.whenBeerSold(props.id)}>Gulp One Beer Down</button>
+        <button onClick = {() => props.onPintSold(props.thisKeg)}>Just Sold a Beer</button>
         <p>There are {pints} pints remaining</p>
         <button onClick={() => setCount(pints - 1)}>Sell One Pint</button>
         <hr/>
@@ -30,7 +30,8 @@ Keg.propTypes = {
   pints: PropTypes.number, // PINTS
   id: PropTypes.string,
   whenKegClicked: PropTypes.func,
-  whenBeerSold: PropTypes.func
+  whenPintSold: PropTypes.func,
+  thisKeg: PropTypes.object
 };
 
 export default Keg;

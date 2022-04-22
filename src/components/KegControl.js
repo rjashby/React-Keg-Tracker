@@ -16,28 +16,28 @@ class KegControl extends React.Component {
           brand: "Two Hearted",
           price: "240.00",
           alcoholContent: "7.0",
-          pints: "124",
+          pints: 124,
           id: v4()
         },
         { name: "The Alchemist",
           brand: "Heady Topper",
           price: "280.00",
           alcoholContent: "8.0",
-          pints: "100",
+          pints: 100,
           id: v4()
         },
         { name: "Tree House Brewing",
           brand: "Very Hazy",
           price: "275.00",
           alcoholContent: "8.6",
-          pints: "87",
+          pints: 87,
           id: v4()
         },
         { name: "Russian River",
           brand: "Pliny the Younger",
           price: "295.00",
           alcoholContent: "10.25",
-          pints: "66",
+          pints: 66,
           id: v4()
         }
       ],
@@ -82,7 +82,6 @@ class KegControl extends React.Component {
   }
 
   handleEditClick = () => {
-    console.log("handleEditClick reached!");
     this.setState({editing: true});
   }
 
@@ -97,22 +96,20 @@ class KegControl extends React.Component {
       });
   }
 
-  handlePintSold = (kegToEdit) => {   // PINTS SOLD FUNCTION
+  handlePintSold = (kegJustServed) => {   // PINTS SOLD FUNCTION
     const oneLessPintKeg = {
-      name: kegToEdit.name,
-      brand: kegToEdit.brand,
-      price: kegToEdit.price,
-      alcoholContent: kegToEdit.alcoholContent,
-      pints: kegToEdit.pints - 1, // PINTS
-      id: kegToEdit.id,
+      name: kegJustServed.name,
+      brand: kegJustServed.brand,
+      price: kegJustServed.price,
+      alcoholContent: kegJustServed.alcoholContent,
+      pints: kegJustServed.pints - 1, // PINTS
+      id: kegJustServed.id,
     }
-    const editedMainKegList = this.state.mainKegList
-      .filter(kegToEdit => kegToEdit.id !== this.state.selectedKeg.id)
+    const newKegList = this.state.mainKegList
+      .filter(keg => keg.id !== kegJustServed.id)
       .concat(oneLessPintKeg);
     this.setState({
-        mainKegList: editedMainKegList,
-        editing: false,
-        selectedKeg: null
+        mainKegList: newKegList,
       });
   };
 
@@ -133,7 +130,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}  />;
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} onPintSold={this.handlePintsSold}/>; // ADD PINTS SOLD TO LIST
+      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} onPintSold={this.handlePintSold}/>; // ADD PINTS SOLD TO LIST
       buttonText = "Add Keg";
     }
     return (

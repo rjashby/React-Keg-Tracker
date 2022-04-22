@@ -22,9 +22,9 @@ function KegForm(props) {
           name='alcoholContent'
           placeholder='Alcohol Content' />
           <input
-          type='text'
+          type='number'
           name='pints'
-          placeholder='124' />
+          placeholder= "124" />
         <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>

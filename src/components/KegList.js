@@ -10,7 +10,7 @@ function KegList(props){
       {props.kegList.map((keg) =>
         <Keg
           whenKegClicked = { props.onKegSelection }
-          whenBeerSold = { props.onPintSold } // CHANGE THIS FUNCTION TO SUBTRACT PINTS
+          onPintSold = { props.onPintSold } 
           name = {keg.name}
           brand = {keg.brand}
           price = {keg.price}

@@ -13,7 +13,7 @@ function EditKegForm(props){
   return (
     <React.Fragment>
       <ReusableForm 
-        formSubmissionHandler={handleEditKegFormSubmission} /* new code */ 
+        formSubmissionHandler={handleEditKegFormSubmission}
         buttonText="Update Keg Details" />
     </React.Fragment>
   );
