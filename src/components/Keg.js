@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from 'react';
 import PropTypes from "prop-types";
 
 function Keg(props){
+  const [pints, setCount] = useState(124);
   return (
     <React.Fragment>
       <div>
         <h4>Name: {props.name} - {props.brand}</h4>
-        <span style={{color: 'green'}}>
-          <h4>Price: ${props.price}</h4>
-        </span>
+        <h4>Price: ${props.price}</h4>
         <p>Alcohol Content: <em>{props.alcoholContent}</em></p>
         <p>Pints Left: <em>{props.pints}</em></p>
         <button onClick = {() => props.whenKegClicked(props.id)}>View Keg Details</button>
         <button onClick = {() => props.whenBeerSold(props.id)}>1 Beer Down</button>
         <hr/>
+        <p>There are {pints} pints remaining</p>
+        <button onClick={() => setCount(pints - 1)}>Sell One Pint</button>
       </div>
     </React.Fragment>
   );

@@ -3,6 +3,7 @@ import NewKegForm from './NewKegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
+import { v4 } from 'uuid';
 
 class KegControl extends React.Component {
 
@@ -10,7 +11,36 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKegList: [],
+      mainKegList: [
+        { name: "Bell's",
+          brand: "Two Hearted",
+          price: "240.00",
+          alcoholContent: "7.0",
+          pints: "124",
+          id: v4()
+        },
+        { name: "The Alchemist",
+          brand: "Heady Topper",
+          price: "280.00",
+          alcoholContent: "8.0",
+          pints: "100",
+          id: v4()
+        },
+        { name: "Tree House Brewing",
+          brand: "Very Hazy",
+          price: "275.00",
+          alcoholContent: "8.6",
+          pints: "87",
+          id: v4()
+        },
+        { name: "Russian River",
+          brand: "Pliny the Younger",
+          price: "295.00",
+          alcoholContent: "10.25",
+          pints: "66",
+          id: v4()
+        }
+      ],
       selectedKeg: null,
       editing: false,
     };
