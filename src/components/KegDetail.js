@@ -7,8 +7,9 @@ function KegDetail(props){
   return (
     <React.Fragment>
       <h1>Keg Detail</h1>
-      <h3>{keg.location} - {keg.names}</h3>
-      <p><em>{keg.issue}</em></p>
+      <h4>{props.name} - {props.brand}</h4>
+      <h4>{props.price}</h4>
+      <p><em>{props.alcoholContent}</em></p>
       <button onClick={ props.onClickingEdit }>Update Keg Details</button>
       <button onClick={()=> onClickingDelete(keg.id) }>Delete Keg From System</button> 
       <hr/>
