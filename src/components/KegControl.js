@@ -16,7 +16,7 @@ class KegControl extends React.Component {
           brand: "Two Hearted",
           price: "240.00",
           alcoholContent: "7.0",
-          pints: 124,
+          pints: 10,
           id: v4()
         },
         { name: "The Alchemist",
@@ -37,7 +37,7 @@ class KegControl extends React.Component {
           brand: "Pliny the Younger",
           price: "295.00",
           alcoholContent: "10.25",
-          pints: 66,
+          pints: 3,
           id: v4()
         }
       ],
@@ -96,26 +96,36 @@ class KegControl extends React.Component {
       });
   }
 
-  handlePintSold = (kegJustServed) => {   // PINTS SOLD FUNCTION
-    const oneLessPintKeg = {
-      name: kegJustServed.name,
-      brand: kegJustServed.brand,
-      price: kegJustServed.price,
-      alcoholContent: kegJustServed.alcoholContent,
-      pints: kegJustServed.pints - 1, // PINTS
-      id: kegJustServed.id,
+  // handlePintSold = (kegJustServed) => {   // PINTS SOLD FUNCTION
+  //   const oneLessPintKeg = {
+  //     name: kegJustServed.name,
+  //     brand: kegJustServed.brand,
+  //     price: kegJustServed.price,
+  //     alcoholContent: kegJustServed.alcoholContent,
+  //     pints: kegJustServed.pints - 1, // PINTS
+  //     id: kegJustServed.id,
+  //   }
+  //   const newKegList = this.state.mainKegList
+  //     .filter(keg => keg.id !== kegJustServed.id)
+  //     .concat(oneLessPintKeg);
+  //   this.setState({
+  //       mainKegList: newKegList,
+  //     });
+  // };
+
+  handlePintSale = (id) => {
+    const servedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
+    if (servedKeg.pints > 0) {
+      servedKeg.pints --;
+      this.setState({servedKeg: null});
+    } else {
+      alert("Sorry, its out of stock");
     }
-    const newKegList = this.state.mainKegList
-      .filter(keg => keg.id !== kegJustServed.id)
-      .concat(oneLessPintKeg);
-    this.setState({
-        mainKegList: newKegList,
-      });
-  };
+  }
 
   render(){
     let currentlyVisibleState = null;
-    let buttonText = null; // new code
+    let buttonText = null; 
     if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List";
@@ -126,11 +136,10 @@ class KegControl extends React.Component {
       onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) {
-      // This conditional needs to be updated to "else if."
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}  />;
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} onPintSold={this.handlePintSold}/>; // ADD PINTS SOLD TO LIST
+      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} onPintSale={this.handlePintSale}/>;
       buttonText = "Add Keg";
     }
     return (
