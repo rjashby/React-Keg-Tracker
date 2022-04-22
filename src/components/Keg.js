@@ -8,6 +8,7 @@ function Keg(props){
         <h4>Name: {props.name} - {props.brand}</h4>
         <h4>Price: ${props.price}</h4>
         <p>Alcohol Content: <em>{props.alcoholContent}</em></p>
+        <p>Pints Left: <em>{props.pints}</em></p>
         <button onClick = {() => props.whenKegClicked(props.id)}>View Keg Details</button>
         <button onClick = {() => props.whenBeerSold(props.id)}>1 Beer Down</button>
         <hr/>
@@ -21,6 +22,7 @@ Keg.propTypes = {
   brand: PropTypes.string,
   price: PropTypes.string,
   alcoholContent: PropTypes.string,
+  pints: PropTypes.string, // PINTS
   id: PropTypes.string,
   whenKegClicked: PropTypes.func,
   whenBeerSold: PropTypes.func

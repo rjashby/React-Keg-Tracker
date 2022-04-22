@@ -12,7 +12,8 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       mainKegList: [],
       selectedKeg: null,
-      editing: false
+      editing: false,
+      pints: 124 // TRACK PINTS
     };
   }
 
@@ -67,6 +68,10 @@ class KegControl extends React.Component {
       });
   }
 
+  handlePintsSold = () => {   // PINTS SOLD CLICK FUNCTION
+    this.setState(prev => ({ pints: prev.pints - 1}));
+  };
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; // new code
@@ -84,7 +89,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}  />;
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />;
+      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} onPintSold={this.handlePintsSold}/>; // ADD PINTS SOLD TO LIST
       buttonText = "Add Keg";
     }
     return (
