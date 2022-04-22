@@ -2,7 +2,7 @@ import React from 'react';
 import KegForm from './KegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
-// import EditKegForm from './EditKegForm';
+import EditKegForm from './EditKegForm';
 
 class KegControl extends React.Component {
 
@@ -81,7 +81,7 @@ class KegControl extends React.Component {
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) {
       // This conditional needs to be updated to "else if."
-      currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}  />;
+      currentlyVisibleState = <KegForm onNewKegCreation={this.handleAddingNewKegToList}  />;
       buttonText = "Return to Keg List";
     } else {
       currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />;
