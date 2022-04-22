@@ -97,8 +97,23 @@ class KegControl extends React.Component {
       });
   }
 
-  handlePintsSold = () => {   // PINTS SOLD CLICK FUNCTION
-    this.setState(prev => ({ pints: prev.pints - 1})); 
+  handlePintSold = (kegToEdit) => {   // PINTS SOLD FUNCTION
+    const oneLessPintKeg = {
+      name: kegToEdit.name,
+      brand: kegToEdit.brand,
+      price: kegToEdit.price,
+      alcoholContent: kegToEdit.alcoholContent,
+      pints: kegToEdit.pints - 1, // PINTS
+      id: kegToEdit.id,
+    }
+    const editedMainKegList = this.state.mainKegList
+      .filter(kegToEdit => kegToEdit.id !== this.state.selectedKeg.id)
+      .concat(oneLessPintKeg);
+    this.setState({
+        mainKegList: editedMainKegList,
+        editing: false,
+        selectedKeg: null
+      });
   };
 
   render(){

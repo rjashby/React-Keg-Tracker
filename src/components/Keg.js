@@ -7,14 +7,16 @@ function Keg(props){
     <React.Fragment>
       <div>
         <h4>Name: {props.name} - {props.brand}</h4>
-        <h4>Price: ${props.price}</h4>
+        <span style={{color: 'green'}}>
+          <h4>Price: ${props.price}</h4>
+        </span>
         <p>Alcohol Content: <em>{props.alcoholContent}</em></p>
         <p>Pints Left: <em>{props.pints}</em></p>
         <button onClick = {() => props.whenKegClicked(props.id)}>View Keg Details</button>
-        <button onClick = {() => props.whenBeerSold(props.id)}>1 Beer Down</button>
-        <hr/>
+        <button onClick = {() => props.whenBeerSold(props.id)}>Gulp One Beer Down</button>
         <p>There are {pints} pints remaining</p>
         <button onClick={() => setCount(pints - 1)}>Sell One Pint</button>
+        <hr/>
       </div>
     </React.Fragment>
   );
@@ -25,7 +27,7 @@ Keg.propTypes = {
   brand: PropTypes.string,
   price: PropTypes.string,
   alcoholContent: PropTypes.string,
-  pints: PropTypes.string, // PINTS
+  pints: PropTypes.number, // PINTS
   id: PropTypes.string,
   whenKegClicked: PropTypes.func,
   whenBeerSold: PropTypes.func
