@@ -19,7 +19,6 @@ function NewKegForm(props){
   );
 }
 
-// We also need to add PropTypes for our new prop.
 NewKegForm.propTypes = {
   onNewKegCreation: PropTypes.func
 };

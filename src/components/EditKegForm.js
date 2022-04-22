@@ -1,5 +1,5 @@
 import React from "react";
-import KegForm from "./KegForm";
+import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
 
 function EditKegForm(props){
@@ -12,7 +12,7 @@ function EditKegForm(props){
 
   return (
     <React.Fragment>
-      <KegForm 
+      <ReusableForm 
         formSubmissionHandler={handleEditKegFormSubmission} /* new code */ 
         buttonText="Update Keg Details" />
     </React.Fragment>

@@ -21,7 +21,7 @@ function KegForm(props) {
           type='text'
           name='alcoholContent'
           placeholder='Alcohol Content' />
-        <button type='submit'>{props.buttonText} NOT WORKING RIGHT NOW</button>
+        <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>
   );
