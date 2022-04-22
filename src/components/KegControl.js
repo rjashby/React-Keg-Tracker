@@ -69,7 +69,7 @@ class KegControl extends React.Component {
   }
 
   handlePintsSold = () => {   // PINTS SOLD CLICK FUNCTION
-    this.setState(prev => ({ pints: prev.pints - 1}));
+    this.setState(prev => ({ pints: prev.pints - 1})); 
   };
 
   render(){
