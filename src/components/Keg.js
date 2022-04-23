@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 
 function Keg(props){
-  const [pints, setCount] = useState(124);
+  // const [pints, setCount] = useState(124); - Using Hooks
   return (
     <React.Fragment>
       <div>
@@ -14,8 +15,8 @@ function Keg(props){
         <p>Pints Left: <em>{props.pints}</em></p>
         <button onClick = {() => props.whenKegClicked(props.id)}>View Keg Details</button>
         <button onClick = {() => props.whenPintSold(props.id)}>Sell One Pint</button>
-        <p>There are {pints} pints remaining</p>
-        <button onClick={() => setCount(pints - 1)}>Sell One Pint</button>
+        {/* <p>There are {pints} pints remaining</p>
+        <button onClick={() => setCount(pints - 1)}>Sell One Pint</button> Hooks Method */}
         <hr/>
       </div>
     </React.Fragment>

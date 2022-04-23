@@ -20,7 +20,9 @@
 
 ## Description 
 
-_._
+_This React application will allow a user to maintain a list of their kegs currently on tap at their establishment. For ease of use, several kegs have already been "installed" to display functionality._
+
+_The user can view the details of the kegs maintained in a dynamic list. The details include the brewer, name of the beer, alcohol by volume, price of each keg, and pints left in the keg. A user can also edit or delete a keg as necessary. State is maintained in this app through the Keg Control class._
  
 ## Setup/Installation Requirements 
 
@@ -156,3 +158,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<a href="#">Return to Top</a>
