@@ -23,14 +23,14 @@ class KegControl extends React.Component {
           brand: "Heady Topper",
           price: "280.00",
           alcoholContent: "8.0",
-          pints: 100,
+          pints: 50,
           id: v4()
         },
         { name: "Tree House Brewing",
           brand: "Very Hazy",
           price: "275.00",
           alcoholContent: "8.6",
-          pints: 87,
+          pints: 32,
           id: v4()
         },
         { name: "Russian River",
@@ -119,7 +119,7 @@ class KegControl extends React.Component {
       servedKeg.pints --;
       this.setState({servedKeg: null});
     } else {
-      alert("Temporarily Out of Stock");
+      alert("Temporarily Out of Stock - Order More Kegs Lazy Bones!");
     }
   }
 
