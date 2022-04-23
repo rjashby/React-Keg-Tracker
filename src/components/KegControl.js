@@ -119,7 +119,7 @@ class KegControl extends React.Component {
       servedKeg.pints --;
       this.setState({servedKeg: null});
     } else {
-      alert("Sorry, its out of stock");
+      alert("Temporarily Out of Stock");
     }
   }
 
