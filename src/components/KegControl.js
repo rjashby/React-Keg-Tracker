@@ -117,7 +117,7 @@ class KegControl extends React.Component {
     const servedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
     if (servedKeg.pints > 0) {
       servedKeg.pints --;
-      this.setState({servedKeg: null});
+      this.setState({servedKeg: servedKeg});
     } else {
       alert("Temporarily Out of Stock - Order More Kegs Lazy Bones!");
     }
